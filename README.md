@@ -212,7 +212,7 @@ BTPrinter.printPOSCommand(function(data){
 ### Print QRCode
 
 ```javascript
-var data = "https://github.com/CesarBalzer/Cordova-Plugin-BTPrinter";
+var data = "https://github.com/nandhawalrost/Cordova-Plugin-BTPrinter";
 var align = 1; /* 0, 1, 2 */
 var model = 49; /* https://reference.epson-biz.com/modules/ref_escpos/index.php?content_id=140 */
 var size = 32; /* https://reference.epson-biz.com/modules/ref_escpos/index.php?content_id=141 */
