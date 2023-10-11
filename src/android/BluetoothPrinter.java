@@ -146,8 +146,7 @@ public class BluetoothPrinter extends CordovaPlugin {
             try {
                 String msg = args.getString(0);
                 Integer size = Integer.parseInt(args.getString(1));
-                Integer align = Integer.parseInt(args.getString(2));
-                printTextSizeAlign(callbackContext, msg, size, align);
+                printTextSizeAlign(callbackContext, msg, size);
             } catch (IOException e) {
                 Log.e(LOG_TAG, e.getMessage());
                 e.printStackTrace();
@@ -528,16 +527,13 @@ public class BluetoothPrinter extends CordovaPlugin {
     }
 
     // This will send data to bluetooth printer
-    boolean printTextSizeAlign(CallbackContext callbackContext, String msg, Integer size, Integer align)
+    boolean printTextSizeAlign(CallbackContext callbackContext, String msg, Integer size)
             throws IOException {
         try {
             // set unicode
             byte[] new_size = selFontSize(size);
-            byte[] new_align = selAlignTitle(align);
             mmOutputStream.write(new_size);
-            mmOutputStream.write(new_align);
             mmOutputStream.write(msg.getBytes(encoding));
-            resetDefaultFontAlign();
             Log.d(LOG_TAG, "PRINT TEXT SENT " + msg);
             callbackContext.success("PRINT TEXT SENT");
             return true;
