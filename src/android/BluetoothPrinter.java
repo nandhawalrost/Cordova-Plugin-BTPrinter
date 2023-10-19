@@ -133,10 +133,10 @@ public class BluetoothPrinter extends CordovaPlugin {
         } else if (action.equals("setEncoding")) {
             encoding = args.getString(0);
             return true;
-        } else if (action.equals("printText")) {
+        } else if (action.equals("printTeks")) {
             try {
                 String msg = args.getString(0);
-                printText(callbackContext, msg);
+                printTeks(callbackContext, msg);
             } catch (IOException e) {
                 Log.e(LOG_TAG, e.getMessage());
                 e.printStackTrace();
