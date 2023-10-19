@@ -22,8 +22,8 @@ var BTPrinter = {
     printText: function (fnSuccess, fnError, str) {
         exec(fnSuccess, fnError, "BluetoothPrinter", "printText", [str]);
     },
-    printTextSizeAlign: function (fnSuccess, fnError, str, size) {
-        exec(fnSuccess, fnError, "BluetoothPrinter", "printTextSizeAlign", [str, size]);
+    printTextSizeAlign: function (fnSuccess, fnError, str, size, align) {
+        exec(fnSuccess, fnError, "BluetoothPrinter", "printTextSizeAlign", [str, size, align]);
     },
     printTitle: function (fnSuccess, fnError, str, size, align) {
         exec(fnSuccess, fnError, "BluetoothPrinter", "printTitle", [str, size, align]);
