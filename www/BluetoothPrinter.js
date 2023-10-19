@@ -19,8 +19,8 @@ var BTPrinter = {
     setEncoding: function (fnSuccess, fnError, str) {
         exec(fnSuccess, fnError, "BluetoothPrinter", "setEncoding", [str]);
     },
-    printTeks: function (fnSuccess, fnError, str) {
-        exec(fnSuccess, fnError, "BluetoothPrinter", "printTeks", [str]);
+    printText: function (fnSuccess, fnError, str) {
+        exec(fnSuccess, fnError, "BluetoothPrinter", "printText", [str]);
     },
     printTextSizeAlign: function (fnSuccess, fnError, str, size, align) {
         exec(fnSuccess, fnError, "BluetoothPrinter", "printTextSizeAlign", [str, size, align]);
