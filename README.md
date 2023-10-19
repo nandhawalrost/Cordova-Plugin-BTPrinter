@@ -2,7 +2,7 @@
 
 A cordova plugin for bluetooth printer for android platform.
 
-This code is being adapted from a fork of [Cordova-Plugin-Bluetooth-Printer](https://github.com/srehanuddin/Cordova-Plugin-Bluetooth-Printer), of free use and modifications that will arise for the improvement of the plugin.
+This code is being adapted from older version with fork of [Cordova-Plugin-Bluetooth-Printer](https://github.com/srehanuddin/Cordova-Plugin-Bluetooth-Printer), of free use and modifications that will arise for the improvement of the plugin.
 
 Suggestions, critiques are welcome, participate and send a commit helping to improve the plugin for the community.
 
