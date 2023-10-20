@@ -151,6 +151,16 @@ public class BluetoothPrinter extends CordovaPlugin {
                 e.printStackTrace();
             }
             return true;
+        } else if (action.equals("printBase64New")) {
+            try {
+                String msg = args.getString(0);
+                Integer align = Integer.parseInt(args.getString(1));
+                printBase64New(callbackContext, msg, align);
+            } catch (IOException e) {
+                Log.e(LOG_TAG, e.getMessage());
+                e.printStackTrace();
+            }
+            return true;
         } else if (action.equals("printImageUrl")) {
             try {
                 String msg = args.getString(0);
@@ -656,6 +666,53 @@ public class BluetoothPrinter extends CordovaPlugin {
             int mWidth = bitmap.getWidth();
             int mHeight = bitmap.getHeight();
 
+            bitmap = resizeImage(bitmap, 48 * 12, mHeight);
+
+            byte[] bt = decodeBitmapBase64(bitmap);
+
+            // not work
+            Log.d(LOG_TAG, "SWITCH ALIGN BASE64 -> " + align);
+            switch (align) {
+            case 0:
+                mmOutputStream.write(ESC_ALIGN_LEFT);
+                mmOutputStream.write(bt);
+                break;
+            case 1:
+                mmOutputStream.write(ESC_ALIGN_CENTER);
+                mmOutputStream.write(bt);
+                break;
+            case 2:
+                mmOutputStream.write(ESC_ALIGN_RIGHT);
+                mmOutputStream.write(bt);
+                break;
+            }
+            // tell the user data were sent
+            Log.d(LOG_TAG, "PRINT BASE64 SEND");
+            callbackContext.success("PRINT BASE64 SEND");
+            return true;
+
+        } catch (Exception e) {
+            String errMsg = e.getMessage();
+            Log.e(LOG_TAG, errMsg);
+            e.printStackTrace();
+            callbackContext.error(errMsg);
+        }
+        return false;
+    }
+
+    boolean printBase64New(CallbackContext callbackContext, String msg, Integer align) throws IOException {
+        try {
+
+            final String encodedString = msg;
+            final String pureBase64Encoded = encodedString.substring(encodedString.indexOf(",") + 1);
+            final byte[] decodedBytes = Base64.decode(pureBase64Encoded, Base64.DEFAULT);
+
+            Bitmap decodedBitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+
+            bitmap = decodedBitmap;
+            int mWidth = bitmap.getWidth();
+            int mHeight = bitmap.getHeight();
+
             bitmap = resizeImage(bitmap, 12 * 12, mHeight);
 
             byte[] bt = decodeBitmapBase64(bitmap);
@@ -687,6 +744,7 @@ public class BluetoothPrinter extends CordovaPlugin {
             e.printStackTrace();
             callbackContext.error(errMsg);
         }
+        
         return false;
     }
 
