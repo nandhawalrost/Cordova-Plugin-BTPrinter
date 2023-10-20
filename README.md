@@ -1,6 +1,6 @@
 # Cordova-Plugin-BTPrinter
 
-A cordova plugin for bluetooth printer for android platform.
+Rebuild version of CaesarBalzer, compatible with older version of Android API SDK
 
 This code is being adapted from older version with fork of [Cordova-Plugin-Bluetooth-Printer](https://github.com/srehanuddin/Cordova-Plugin-Bluetooth-Printer), of free use and modifications that will arise for the improvement of the plugin.
 
