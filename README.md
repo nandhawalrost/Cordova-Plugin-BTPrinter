@@ -181,7 +181,7 @@ BTPrinter.printBase64(function(data){
 }, "Image Base64 String",'0');//base64 string
 ```
 
-### Print image from base64 optimized version
+### Print image from base64 (optimized version)
 
 ```javascript
 BTPrinter.printBase64New(function(data){
