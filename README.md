@@ -181,6 +181,18 @@ BTPrinter.printBase64(function(data){
 }, "Image Base64 String",'0');//base64 string
 ```
 
+### Print image from base64 optimized version
+
+```javascript
+BTPrinter.printBase64New(function(data){
+    console.log("Success");
+    console.log(data);
+},function(err){
+    console.log("Error");
+    console.log(err);
+}, "Image Base64 String",'0');//base64 string
+```
+
 ### Print title with size and align
 
 - with align still in tests not work alignment)
